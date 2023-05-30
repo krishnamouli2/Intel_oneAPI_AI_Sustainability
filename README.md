@@ -23,10 +23,10 @@ To track the power consumption we need to install CodeCarbon
 ### CPU
 On Windows or Mac    
 
-Tracks Intel processors power consumption using the Inter Power Gadget. You need to install it yourself from this source .      
+codecarbon tracks Intel processors power consumption using the Inter Power Gadget. You need to install it yourself from this source .      
 
 On Linux      
 
-Tracks Intel Processor power consumption from Inter RAPL files at \sys\class\powercap\intel-rapl ( reference ). All CPUs listed in this directory will be tracked. Help us improve this and make it configurable.
+codecarbon tracks Intel Processor power consumption from Inter RAPL files at \sys\class\powercap\intel-rapl ( reference ). All CPUs listed in this directory will be tracked. Help us improve this and make it configurable.
 
 Note: The Power Consumption will be tracked only if the RAPL files exist at the above mentioned path
