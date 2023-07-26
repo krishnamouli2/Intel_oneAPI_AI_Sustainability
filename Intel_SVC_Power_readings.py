@@ -4,7 +4,7 @@ from sklearn.datasets import fetch_openml
 from sklearn.model_selection import train_test_split
 
 from codecarbon import EmissionsTracker
-
+import time
 print('Loading The dataset')
 x, y = fetch_openml(name='a9a', return_X_y=True)
 
@@ -21,6 +21,7 @@ params = {
     'gamma': 'scale'
 }
 tracker = EmissionsTracker(project_name="Intel_pacthed_sklearn")
+tracker.start()
 start = timer()
 classifier = SVC(**params).fit(x_train, y_train)
 train_patched = timer() - start
@@ -30,11 +31,10 @@ print(f"Emissions : {emissions} kg CO2")
 
 predicted = classifier.predict(x_test)
 report = metrics.classification_report(y_test, predicted)
-print(f"Classification report for Intel® extension for Scikit-learn SVC:\n{report}\n")
+print(f"Classification report for IntelÂ® extension for Scikit-learn SVC:\n{report}\n")
 
 print('Cooling period for unpatching is 10 sec',time.sleep(10))
 
-from codecarbon import EmissionsTracker
 
 from sklearnex import unpatch_sklearn
 unpatch_sklearn()
